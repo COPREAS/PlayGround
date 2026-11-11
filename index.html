@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#101619" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23e6c45b' d='M32 2 62 32 32 62 2 32z'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23101619' stroke-width='3'/%3E%3C/svg%3E" />
+  <title>HELLDIVERS II — Field Armory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup"><div class="sigil"><span></span><i></i></div><div><div class="brand">HELLDIVERS <b>II</b></div><div class="subbrand">MINISTRY OF DEFENSE <span>•</span> SUPER EARTH</div></div></div>
+      <div class="top-center"><span class="status-dot"></span> ARMORY / FIELD EQUIPMENT <span class="top-divider">—</span> <span class="muted">DESTROYER: SES SHIELD OF CONVICTION</span></div>
+      <div class="top-right"><span class="credit-icon">✦</span><span class="credits">28,450</span><span class="credit-label">R</span><button class="icon-button" aria-label="Settings">☼</button></div>
+    </header>
+    <main class="layout">
+      <section class="left-panel">
+        <div class="eyebrow"><span class="eyebrow-line"></span> PERSONAL EQUIPMENT <span class="serial">EQ-09 / 24</span></div>
+        <h1>FIELD<br><em>ARMORY</em></h1>
+        <p class="intro">Configure your loadout. Make freedom<br>look good doing it.</p>
+        <div class="category-list" role="tablist" aria-label="Armor category">
+          <button class="category active" data-tab="helmet"><span class="cat-icon">◈</span><span><b>HELMET</b><small>HEAD PROTECTION</small></span><span class="cat-chevron">›</span></button>
+          <button class="category" data-tab="armor"><span class="cat-icon">⬡</span><span><b>BODY ARMOR</b><small>LIGHT / MEDIUM / HEAVY</small></span><span class="cat-chevron">›</span></button>
+          <button class="category" data-tab="cape"><span class="cat-icon">◢</span><span><b>CAPE</b><small>MAKE AN ENTRANCE</small></span><span class="cat-chevron">›</span></button>
+          <button class="category" data-tab="palette"><span class="cat-icon">◌</span><span><b>COLORWAY</b><small>PAINT & FINISH</small></span><span class="cat-chevron">›</span></button>
+        </div>
+        <div class="left-foot"><div class="micro-label">CURRENTLY EQUIPPED</div><div class="equipped-name"><span class="tiny-check">✓</span><span id="equippedLabel">SA-25 STEEL TROOPER</span></div><div class="left-rule"></div><div class="left-footnote"><span class="tiny-star">✦</span> SPREAD MANAGED DEMOCRACY</div></div>
+      </section>
+      <section class="stage">
+        <div class="stage-bg"></div>
+        <div class="stage-topline"><div><span class="yellow-tag">ARMOR PREVIEW</span><span class="stage-id">// HELLDIVER #804.113</span></div><div class="rotate-hint"><span class="mouse-icon">↔</span> DRAG TO ROTATE</div></div>
+        <div id="scene" aria-label="Interactive 3D armor preview"></div>
+        <div class="scanline"></div>
+        <div class="stage-label"><span class="stage-label-mark">⌖</span><span>TACTICAL<br>ASSESSMENT</span><i></i></div>
+        <div class="stage-coords">38° 53′ 42.6″ N<br>77° 02′ 12.0″ W</div>
+        <div class="stage-bottom"><div class="readout"><span class="readout-icon">◉</span><div><small>ARMOR RATING</small><b id="armorRating">150</b></div><span class="readout-unit">AR</span></div><div class="readout"><span class="readout-icon">⌁</span><div><small>PASSIVE</small><b id="armorPassive">REINFORCED</b></div></div><div class="model-controls"><button id="rotateBtn" class="round-control" title="Rotate model">⟳</button><button id="zoomBtn" class="round-control" title="Reset view">⌕</button></div></div>
+      </section>
+      <section class="right-panel">
+        <div class="right-head"><div><div class="eyebrow">ARMORY INVENTORY</div><h2 id="sectionTitle">HELMETS <span>03</span></h2></div><button id="randomBtn" class="random-button"><span>⤨</span> RANDOMIZE</button></div>
+        <div class="sort-row"><span id="inventorySub">SELECT A HELMET</span><span>UNLOCKED <b id="unlockedCount">03</b> <span class="sort-icon">☷</span></span></div>
+        <div id="itemGrid" class="item-grid"></div>
+        <div class="detail-card"><div class="detail-heading"><span>◈</span> EQUIPMENT DETAILS <span class="detail-line"></span></div><div class="detail-name" id="detailName">SA-25 STEEL TROOPER</div><div class="detail-desc" id="detailDesc">Standard issue helmet with reinforced faceplate and sealed life-support system.</div><div class="detail-tags"><span id="detailTag">MEDIUM ARMOR</span><span>HELLPOD CERTIFIED</span></div></div>
+        <div class="right-bottom"><button class="back-button"><span>‹</span> BACK</button><button id="equipBtn" class="equip-button">EQUIPPED <span>✓</span></button></div>
+      </section>
+    </main>
+    <footer class="footer"><span>SUPER EARTH ARMED FORCES <i>•</i> EQUIPMENT DIVISION</span><span>FOR LIBERTY. FOR MANAGED DEMOCRACY. <b>☼</b></span><span>BUILD 01.08.400</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
